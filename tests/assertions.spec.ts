@@ -15,8 +15,14 @@ test("Automawaiting and Forcing", async({browser})=>{
     const title = await page.title();
     expect(title).toBe('Demo Web Shop');
 
-    const welcomeText = await page.locator(' //h2[normalize-space()="Welcome to our store"]').textContent();
+    const welcomeText = await page.locator('//h2[normalize-space()="Welcome to our store"]').textContent();
     expect(welcomeText?.includes('Welcome to our store')).toBeTruthy();
+
+    //Negative matcher assesrtions
+    // await expect(page.locator('//h2[normalize-space()="Welcome to our store"]')).not.toBeVisible(); // auto retry
+    // expect(welcomeText).not.toContain('Welcome'); // non- retry
+
+
     
 
 })
