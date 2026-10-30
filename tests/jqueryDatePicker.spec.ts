@@ -66,7 +66,7 @@ async function datePickerSelction(year:string, month:string, date:string, page:P
            await page.locator('.ui-datepicker-next').click() // future 
         }
          else{
-            const value =await page.locator('.ui-datepicker-prev').click(); // Past
+            await page.locator('.ui-datepicker-prev').click(); // Past
         }
     
     }
@@ -82,7 +82,7 @@ async function datePickerSelction(year:string, month:string, date:string, page:P
 
 }
 
-// use to select past or future value based on the req and used fucnction
+// use to select past or future value based on the req and used function
 
 test("jquery date picker with function", async ({page})=>{
 
