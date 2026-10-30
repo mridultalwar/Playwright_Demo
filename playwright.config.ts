@@ -21,14 +21,16 @@ export default defineConfig({
 
   testDir: './tests',
   /* Run tests in files in parallel */
-  fullyParallel: true,
+  fullyParallel: false, //to run all test in serial order
+  // fullyParallel: true,   // to run all the test cases in parallel order
+
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   // forbidOnly: !!process.env.CI,
     forbidOnly: !!false,
 
   /* Retry on CI only */
   // retries: process.env.CI ? 2 : 0,
-    retries: 2,
+    retries: 1,  // done by Mridul
 
   /* Opt out of parallel tests on CI. */
   // workers: process.env.CI ? 1 : undefined,
@@ -41,9 +43,11 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
+    // screenshot:'only-on-failure',  // done by mridul
+    // video:'retain-on-failure',  // done by mridul
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    // trace: 'on-first-retry',  // done by mridul
   },
   
 
@@ -54,15 +58,15 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     /* Test against mobile viewports. */
     // {
